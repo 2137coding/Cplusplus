@@ -18,6 +18,7 @@ int main(){
     size_t isdigit {0};
     size_t islower {0};
     size_t isupper {0};
+    size_t ispunct {0};
     for(auto i : message){
         if(std::isprint(i)){
             ++isprint;
@@ -53,7 +54,12 @@ int main(){
             ++isupper;
         }
     }
-    int x {15};
+    for(auto p : message){
+        if(std::ispunct(p)){
+            ++ispunct;
+        }
+    }
+    int x {22};
    std::cout << std::endl;
    std::cout << std::setw(x) << "Summary" << std::endl;
    std::cout << std::setw(x) << "characters : " << isprint << std::endl;
@@ -63,6 +69,7 @@ int main(){
    std::cout << std::setw(x) << "digits : " << isdigit << std::endl;
    std::cout << std::setw(x) << "lower letters : " << islower << std::endl;
    std::cout << std::setw(x) << "upper letters : " << isupper << std::endl;
+   std::cout << std::setw(x) << "Punctuation mark : " << ispunct << std::endl;
 
     }
 
