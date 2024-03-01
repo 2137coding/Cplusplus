@@ -2,27 +2,12 @@
 #include <cmath>
 #include <iomanip>
 
-long double plus1(long double a, long double b){
-    long double plus = a + b;
-    return plus;
-}
+long double plus1(long double a, long double b);
+long double minus1(long double a, long double b);
+long double multiply1(long double a, long double b);
+long double division1(long double a, long double b);
+long double pow1(long double a, long double b);
 
-long double minus1(long double a, long double b){
-    long double minus = a - b;
-    return minus;
-}
-long double multiply1(long double a, long double b){
-    long double multiply = a * b;
-    return multiply;
-}
-long double division1(long double a, long double b){
-    long double division = a/b;
-    return division;
-}
-long double pow1(long double a, long double b){
-    long double pow = std::pow(a,b);
-    return pow;
-}
 int main(){
     long double a;
     long double b;
@@ -73,4 +58,27 @@ int main(){
     }
    
    return 0;
+}
+
+
+long double plus1(long double a, long double b){
+    long double plus = a + b;
+    return plus;
+}
+
+long double minus1(long double a, long double b){
+    long double minus = a - b;
+    return minus;
+}
+long double multiply1(long double a, long double b){
+    long double multiply = a * b;
+    return multiply;
+}
+long double division1(long double a, long double b){
+    long double division = a/b;
+    return division;
+}
+long double pow1(long double a, long double b){
+    long double pow = std::pow(a,b);
+    return pow;
 }
