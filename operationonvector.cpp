@@ -8,18 +8,19 @@ void sum(const std::vector<int>& x);
 void minus_sum(const std::vector<int>& x, const std::vector<int> y);
 void plus_sum(const std::vector<int>& x, const std::vector<int> y);
 void average(const std::vector<int>& x);
-void sum_of_numbers(const std::vector<int> x, const std::vector<int> y);
-void minus_of_numbers(const std::vector<int> x, const std::vector<int> y);
+void sum_of_numbers(const std::vector<int>& x, const std::vector<int>& y);
+void minus_of_numbers(const std::vector<int>& x, const std::vector<int>& y);
 void add(std::vector<int>& x,int y);
 void erase(std::vector<int>& x,int y);
 void brand_new_array(std::vector<int>& x);
 
-int input;
+
 
 int main(){
     std::vector<int> array;
     std::vector<int> array1;
     std::string a;
+    int input;
     int x {};
     std::cout << "enter the set of numbers you want to operate on to stop write 0" << std::endl;
     while (std::cin >> input && input != 0) {
@@ -172,7 +173,7 @@ void average(const std::vector<int>& x){
     std::cout << std::endl;
 }
 
-void sum_of_numbers(const std::vector<int> x, const std::vector<int> y){
+void sum_of_numbers(const std::vector<int>& x, const std::vector<int>& y){
     std::vector<int> sum_number;
     int sum {0};
     if(x.size() != y.size()){
@@ -193,7 +194,7 @@ void sum_of_numbers(const std::vector<int> x, const std::vector<int> y){
     std::cout << std::endl;
 }
 
-void minus_of_numbers(const std::vector<int> x, const std::vector<int> y){
+void minus_of_numbers(const std::vector<int>& x, const std::vector<int>& y){
     std::vector<int> minus_number;
     int minus {0};
     if(x.size() != y.size()){
@@ -232,13 +233,14 @@ void erase(std::vector<int>& x, int y){
 
 void brand_new_array(std::vector<int>& x){
     x.clear();
+    int input1;
     std::cout << std::endl;
     std::cout << std::endl;
     std::cout << "Type the content of the new array/ 0 to finish" << std::endl;
     std::cout << std::endl;
     std::cout << std::endl;
-    while(std::cin >> input && input != 0){
-        x.push_back(input);
+    while(std::cin >> input1 && input1 != 0){
+        x.push_back(input1);
     }
     
 }
