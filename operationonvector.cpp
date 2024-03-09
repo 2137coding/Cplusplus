@@ -5,8 +5,8 @@
 
 void see(const std::vector<int>& x);
 void sum(const std::vector<int>& x);
-void minus_sum(const std::vector<int>& x, const std::vector<int> y);
-void plus_sum(const std::vector<int>& x, const std::vector<int> y);
+void minus_sum(const std::vector<int>& x, const std::vector<int>& y);
+void plus_sum(const std::vector<int>& x, const std::vector<int>& y);
 void average(const std::vector<int>& x);
 void sum_of_numbers(const std::vector<int>& x, const std::vector<int>& y);
 void minus_of_numbers(const std::vector<int>& x, const std::vector<int>& y);
@@ -129,7 +129,7 @@ void sum(const std::vector<int>& x){
     std::cout << std::endl;
 }
 
-void minus_sum(const std::vector<int>& x, const std::vector<int> y){
+void minus_sum(const std::vector<int>& x, const std::vector<int>& y){
     int sum1 {0};
     int sum2 {0};
     for(size_t i {0}; i < x.size();++i){
@@ -145,7 +145,7 @@ void minus_sum(const std::vector<int>& x, const std::vector<int> y){
     std::cout << std::endl;
 }
 
-void plus_sum(const std::vector<int>& x, const std::vector<int> y){
+void plus_sum(const std::vector<int>& x, const std::vector<int>& y){
     int sum1 {0};
     int sum2 {0};
     for(size_t i {0}; i < x.size();++i){
