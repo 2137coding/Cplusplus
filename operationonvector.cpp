@@ -12,7 +12,7 @@ void sum_of_numbers(const std::vector<int> x, const std::vector<int> y);
 void minus_of_numbers(const std::vector<int> x, const std::vector<int> y);
 void add(std::vector<int>& x,int y);
 void erase(std::vector<int>& x,int y);
-void brand_new_array(const std::vector<int>& x);
+void brand_new_array(std::vector<int>& x);
 
 int input;
 
@@ -34,6 +34,9 @@ int main(){
     std::cout << "sum_two  - to write another array and add sum of this two array" << std::endl;
     std::cout << "sum_of_numbers - to add to each number in a set the corresponding number from the second set" << std::endl;
     std::cout << "minus_of_numbers - to subtract from each number in the set the corresponding number from the second set" << std::endl;
+    std::cout << "add - to add numbers to your array" << std::endl;
+    std::cout << "erase - to erase numbers from your array" << std::endl;
+    std::cout << "brand_new_array - to replace old array with new" << std::endl;
 
     while(std::cin >> a && a != "end"){
     if(a == "average"){
@@ -76,9 +79,15 @@ int main(){
         std::cin >> input;
         erase(array,input);
 
-    }else if(a == "brand_new"){
+    }else if(a == "brand_new_array"){
         brand_new_array(array);
 
+    }else{
+        std::cout << std::endl;
+        std::cout << std::endl;
+        std::cout << "error" << std::endl;
+        std::cout << std::endl;
+        std::cout << std::endl;
     }
     std::cout << "see - to see the numbers you type" << std::endl;
     std::cout << "sum - this give you sum of your numbers" << std::endl;
@@ -87,6 +96,9 @@ int main(){
     std::cout << "sum_two  - to write another array and add sum of this two array" << std::endl;
     std::cout << "sum_of_numbers - to add to each number in a set the corresponding number from the second set" << std::endl;
     std::cout << "minus_of_numbers - to subtract from each number in the set the corresponding number from the second set" << std::endl;
+    std::cout << "add - to add numbers to your array" << std::endl;
+    std::cout << "erase - to erase numbers from your array" << std::endl;
+    std::cout << "brand_new_array - to replace old array with new" << std::endl;
     }
     
     return 0;
