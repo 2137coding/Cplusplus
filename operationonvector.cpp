@@ -38,6 +38,7 @@ int main(){
     std::cout << "add - to add numbers to your array" << std::endl;
     std::cout << "erase - to erase numbers from your array" << std::endl;
     std::cout << "brand_new_array - to replace old array with new" << std::endl;
+    std::cout << "end - to end program" << std::endl;
 
     while(std::cin >> a && a != "end"){
     if(a == "average"){
@@ -52,6 +53,7 @@ int main(){
             array1.push_back(input);
         }
         plus_sum(array,array1);
+        array1.clear();
 
     }else if(a == "minus_two"){
         std::cout << "Write 2 array to stop write 0" << std::endl;
@@ -59,18 +61,21 @@ int main(){
             array1.push_back(input);
         }
         minus_sum(array,array1);
+        array1.clear();
     }else if(a == "sum_of_numbers"){
         std::cout << "write 2 array to stop write 0" << std::endl;
         while(std::cin >> input && input != 0){
             array1.push_back(input);
         }
         sum_of_numbers(array,array1);
+        array1.clear();
     }else if(a == "minus_of_numbers"){
         std::cout << "write 2 array to stop write 0" << std::endl;
         while(std::cin >> input && input != 0){
             array1.push_back(input);
         }
         minus_of_numbers(array,array1);
+        array1.clear();
     }else if(a == "add"){
         std::cout << "Type number to add" << std::endl;
         std::cin >> input;
@@ -100,6 +105,7 @@ int main(){
     std::cout << "add - to add numbers to your array" << std::endl;
     std::cout << "erase - to erase numbers from your array" << std::endl;
     std::cout << "brand_new_array - to replace old array with new" << std::endl;
+    std::cout << "end - to end program" << std::endl;
     }
     
     return 0;
