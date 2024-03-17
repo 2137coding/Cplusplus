@@ -25,7 +25,7 @@ int main() {
     double a;
     double b;
     char c;
-    std::cin >> a >> c >> b;
+    while(std::cin >> a >> c >> b){
     switch(c){
         case '+': {
             plus(a,b);
@@ -60,7 +60,7 @@ int main() {
             std::cout << "error" << std::endl;
         }
     }
-    
+    }
 
     return 0;
 }
