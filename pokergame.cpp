@@ -66,25 +66,42 @@ int main(){
     while(std::cin >> trade1 && trade1 != 0){
         trade.push_back(trade1);
     }
-    if(trade[0] == 1){
-        one = rand() % 52;
-        cards(one);
+    for(size_t i {0}; i < trade.size();++i){
+    switch(trade[i]){
+        case 1: {
+            one = rand() % 52;
+            cards(one);
+        }
+        break;
+
+        case 2: {
+            two = rand() % 52;
+            cards(two);
+        }
+        break;
+
+        case 3: {
+            three = rand() % 52;
+            cards(three);
+        }
+        break;
+
+        case 4: {
+            four = rand() % 52;
+            cards(four);
+        }
+        break;
+
+        case 5: {
+            five = rand() % 52;
+            cards(five);
+        }
+        break;
+
+        default: {
+            std::cout << "Invalid number" << std::endl;
+        }
     }
-    if(trade[1] == 2){
-        two = rand() % 52;
-        cards(two);
-    }
-    if(trade[2] == 3){
-        three = rand() % 52;
-        cards(three);
-    }
-    if(trade[3] == 4){
-        four = rand() % 52;
-        cards(four);
-    }
-    if(trade[4] == 5){
-        five = rand() % 52;
-        cards(five);
     }
     std::cout << std::endl;
     std::cout << std::endl;
