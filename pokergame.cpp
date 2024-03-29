@@ -129,6 +129,7 @@ int cards_review(const std::vector<int>& x){
     const int color = 80;
     const int street = 70;
     const int three_cards = 60;
+    const int two_pairs = 55;
     const int two_cards = 50;
     bool kareta;
     bool para;
@@ -196,6 +197,8 @@ int cards_review(const std::vector<int>& x){
         return street;
     }else if(trójka){
         return three_cards;
+    }else if(dwie_pary){
+     return two_pairs
     }else if(para){
         return two_cards;
     }
