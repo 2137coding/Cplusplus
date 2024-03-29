@@ -152,6 +152,8 @@ int main(){
      cash1 = cash1 + wpłata1 + wpłata1 + wpłata2 + wpłata2;
     }else if(result1 == result2){
         std::cout << "remis " << result1 << std::endl;
+        cash1 = cash1 + wpłata1 + wpłata2;
+        cash2 = cash2 + wpłata1 + wpłata2;
         
     }else{
      std::cout << "przeciwnik wygrał" << result2 << std::endl;
