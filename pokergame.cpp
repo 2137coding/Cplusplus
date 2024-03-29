@@ -138,6 +138,7 @@ int main(){
      std::cout << "przeciwnik wygrał" << result2 << std::endl;
      cash1 -= wpłata1 - wpłata1 - wpłata2 - wpłata2;
     }
+    trade.clear();
     }
     if(cash1 < 0){
         std::cout << std::endl;
