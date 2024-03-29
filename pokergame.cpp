@@ -107,8 +107,8 @@ int main(){
     std::cout << "=====================================" << std::endl;
     std::vector<int> P_1cards {one,two,three,four,five};
     std::vector<int> P_2cards {one2,two2,three2,four2,five2};
-    result1 = card_review(P_1cards);
-    result2 = card_reviw(P_2cards);
+    result1 = cards_review(P_1cards);
+    result2 = cards_review(P_2cards);
     std::cout << std::endl;
     std::cout << std::endl;
    if(result1 > result2){
@@ -180,7 +180,7 @@ int cards_review(const std::vector<int>& x){
 
    for(size_t i {0}; i < value.size();++i){
         if(value[i] > 0){
-         wyskarta = true
+         wyskarta = true;
           }
    }
          
@@ -219,11 +219,11 @@ int cards_review(const std::vector<int>& x){
     }else if(trójka){
         return three_cards;
     }else if(dwie_pary){
-     return two_pairs
+     return two_pairs;
     }else if(para){
         return two_cards;
     }else if(wyskarta){
-        return card
+        return card;
          }
 }
 
