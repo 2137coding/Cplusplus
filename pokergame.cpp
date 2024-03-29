@@ -12,6 +12,8 @@ int cards_review(const std::vector<int>& x);
 
 int main(){
     srand(static_cast<int>(time(0)));
+    int result1;
+    int result2;
     int one;
     int two;
     int three;
@@ -105,7 +107,7 @@ int main(){
     std::cout << "=====================================" << std::endl;
     std::vector<int> P_1cards {one,two,three,four,five};
     std::vector<int> P_2cards {one2,two2,three2,four2,five2};
-    
+    result1 = card_review(P_1cards);
     
     
 
@@ -131,6 +133,7 @@ int cards_review(const std::vector<int>& x){
     const int three_cards = 60;
     const int two_pairs = 55;
     const int two_cards = 50;
+    const int card = 40;
     bool kareta;
     bool para;
     bool trójka;
@@ -138,6 +141,7 @@ int cards_review(const std::vector<int>& x){
     bool strit;
     bool naj_karta;
     bool dwie_pary;
+    bool wyskarta;
     int two_pair {1};
     int sequence {0};
 
@@ -163,6 +167,13 @@ int cards_review(const std::vector<int>& x){
             dwie_pary = true;
         }
     }
+
+   for(size_t i {0}; i < value.size();++i){
+        if(value[i] > 0){
+         wyskarta = true
+          }
+   }
+         
 
     std::vector<int> kolory (4,0);
     for(int card : x){
@@ -201,7 +212,9 @@ int cards_review(const std::vector<int>& x){
      return two_pairs
     }else if(para){
         return two_cards;
-    }
+    }else if(wyskarta){
+        return card
+         }
 }
 
 template <typename T> void cards(T a){
