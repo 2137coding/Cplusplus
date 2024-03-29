@@ -57,7 +57,8 @@ int main(){
     std::cout << "Wpłaty: Zdecyduj ile wpłacisz ty i przeciwnik" << std::endl;
     std::cout << "Twoje saldo to " << cash1 << std::endl;
     std::cin >> wpłata1;
-    cash1 = cash1 - wpłata1;
+    cash1 -= wpłata1;
+    cash2 -= wpłata1;
     std::cout << std::endl;
     std::cout << std::endl;
     std::cout << std::endl;
@@ -90,7 +91,8 @@ int main(){
     std::cout << "Wpłaty: Zdecyduj ile wpłacisz ty i przeciwnik" << std::endl;
     std::cout << "Twoje saldo to " << cash1 << std::endl;
     std::cin >> wpłata2;
-    cash1 = cash1 - wpłata2;
+    cash1 -=  wpłata2;
+    cash2 -= wpłata2;
     std::cout << std::endl;
     std::cout << std::endl;
     std::cout << "Pokazanie kart(showdown): " << std::endl;
@@ -130,13 +132,13 @@ int main(){
     std::cout << std::endl;
    if(result1 > result2){
      std::cout << "Wygrałes" << result1 << std::endl;
-     cash1 += wpłata1 + wpłata1 + wpłata2 + wpłata2;
+     cash1 = cash1 + wpłata1 + wpłata1 + wpłata2 + wpłata2;
     }else if(result1 == result2){
         std::cout << "remis " << result1 << std::endl;
         
     }else{
      std::cout << "przeciwnik wygrał" << result2 << std::endl;
-     cash1 -= wpłata1 - wpłata1 - wpłata2 - wpłata2;
+     cash2  = cash2 + wpłata1 + wpłata1 + wpłata2 + wpłata2;
     }
     trade.clear();
     }
@@ -149,10 +151,13 @@ int main(){
     }else{
         std::cout << std::endl;
         std::cout << std::endl;
-        std::cout << "przeciwnik sie poddał" << std::endl;
+        std::cout << "przeciwnik sie poddał, bo zabrakło mu pieniędzy" << std::endl;
         std::cout << std::endl;
         std::cout << std::endl;
     }
+    std::cout << "Type something to close porogram" << std::endl;
+    int og;
+    std::cin >> og;
     
     
 
@@ -178,7 +183,7 @@ int cards_review(const std::vector<int>& x){
     const int color = 8000;
     const int street = 7000;
     const int three_cards = 6000;
-    //const int two_pairs = 5000;
+    const int two_pairs = 5000;
     const int two_cards = 4000;
     const int card = 3000;
     bool kareta {false};
@@ -189,7 +194,7 @@ int cards_review(const std::vector<int>& x){
     bool naj_karta {false};
     bool dwie_pary {false};
     bool wyskarta {false};
-    int two_pair {1};
+    int two_pair {0};
     int sequence {0};
     int single_card {0};
 
@@ -210,12 +215,15 @@ int cards_review(const std::vector<int>& x){
     }
     
 
-    /*for(size_t i {0}; i < value.size();++i){
-        if(value[i] == 2 && value[i + two_pair] == 2){
+    for(size_t i {0}; i < value.size();++i){
+        if(value[i] == 2){
+            ++two_pair;
+        }
+        if(two_pair == 2){
             dwie_pary = true;
         }
     }
-    */
+    
    for(size_t i {0}; i < value.size();++i){
         if(value[i] > 0){
          wyskarta = true;
@@ -275,6 +283,15 @@ int cards_review(const std::vector<int>& x){
         return street +single_card;
     }else if(trójka){
         return three_cards + single_card;
+    }else if(dwie_pary){
+        for(size_t i {0}; i < value.size();++i){
+       if(value[i] > 0 && value[i] == 2){
+        single_card = rank[i];
+        break;
+       }
+   }
+    return two_pair + single_card;
+
     }else if(para){
         return two_cards + single_card;
     }else if(wyskarta){
@@ -553,5 +570,3 @@ template <typename T> void cards(T a){
 
     }
 }
-
-
