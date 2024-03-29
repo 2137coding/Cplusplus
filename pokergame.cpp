@@ -156,7 +156,7 @@ int main(){
         cash2 = cash2 + wpłata1 + wpłata2;
         
     }else{
-     std::cout << "przeciwnik wygrał" << result2 << std::endl;
+     std::cout << "przeciwnik wygrał" << result2 << ": ty " << result1 << std::endl;
      cash2  = cash2 + wpłata1 + wpłata1 + wpłata2 + wpłata2;
     }
     trade.clear();
@@ -217,7 +217,7 @@ int cards_review(const std::vector<int>& x){
     int sequence {0};
     int single_card {0};
 
-    for(size_t i {0}; i < value.size();++i){
+     for(size_t i {0}; i < value.size();++i){
         if(value[i] == 2){
             para = true;
             single_card = rank[i];
@@ -240,8 +240,10 @@ int cards_review(const std::vector<int>& x){
         }
         if(two_pair == 2){
             dwie_pary = true;
+            break;
         }
     }
+    
     
    for(size_t i {0}; i < value.size();++i){
         if(value[i] > 0){
@@ -308,8 +310,9 @@ int cards_review(const std::vector<int>& x){
         single_card = rank[i];
         break;
        }
-   }
-    return two_pair + single_card;
+        }
+        
+    return two_pairs + single_card;
 
     }else if(para){
         return two_cards + single_card;
