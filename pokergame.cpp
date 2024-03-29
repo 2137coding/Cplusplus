@@ -108,6 +108,16 @@ int main(){
     std::vector<int> P_1cards {one,two,three,four,five};
     std::vector<int> P_2cards {one2,two2,three2,four2,five2};
     result1 = card_review(P_1cards);
+    result2 = card_reviw(P_2cards);
+    std::cout << std::endl;
+    std::cout << std::endl;
+   if(result1 > result2){
+     std::cout << "Wygrałes" << std::endl;
+    }else{
+     std::cout << "przeciwnik wygrał" << std::endl;
+    }
+
+     
     
     
 
@@ -125,15 +135,15 @@ int cards_review(const std::vector<int>& x){
     for(int card : x){
         value[card % 13]++;
     }
-    const int poker = 100;
-    const int caret = 95;
-    const int full = 90;
-    const int color = 80;
-    const int street = 70;
-    const int three_cards = 60;
-    const int two_pairs = 55;
-    const int two_cards = 50;
-    const int card = 40;
+    const int poker = 100000;
+    const int caret = 10000;
+    const int full = 9000;
+    const int color = 8000;
+    const int street = 7000;
+    const int three_cards = 6000;
+    const int two_pairs = 5000;
+    const int two_cards = 4000;
+    const int card = 3000;
     bool kareta;
     bool para;
     bool trójka;
