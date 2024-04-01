@@ -29,19 +29,61 @@ int main(){
     int four2;
     int five2;
     int trade1;
+    int check [10];
     while(cash1 > 0 && cash2 > 0){
     std::cout << "Krupier rozdaje karty" << std::endl;
     std::cout << "Twoje karty : " << std::endl;
     one = rand() % 52;
+    check[0] = one;
     two = rand() % 52;
+    while(two == check[0]){
+        two = rand() % 52;
+    }
+    check[1] = two;
     three = rand() % 52;
+    while(three == check[0] || three == check[1]){
+        three = rand() % 52;
+    }
+    check[2] = three;
     four = rand() % 52;
+     while(four == check[0] || four == check[1] || four == check[2]){
+        four = rand() % 52;
+    }
+    check[3] = four;
     five = rand() % 52;
+    while(five == check[0] || five == check[1] || five == check[2] || five == check[3]){
+        five = rand() % 52;
+        std::cout << five << std::endl;
+    }
+    check[4] = five;
     one2 = rand() % 52;
+     while(one2 == check[0] || one2 == check[1] || one2 == check[2] || one2 == check[3] || one2 == check[4]){
+        one2 = rand() % 52;
+    }
+    check[5] = one2;
     two2 = rand() % 52;
+     while(two2 == check[0] || two2 == check[1] || two2 == check[2] || two2 == check[3] || two2 == check[4] || two2 == check[5]){
+        two2 = rand() % 52;
+    }
+    check[6] = two2;
     three2 = rand() % 52;
+     while(three2 == check[0] || three2 == check[1] || three2 == check[2] || three2 == check[3] || three2 == check[4] || three2 == check[5] || three2 == check[6]){
+        three2 = rand() % 52;
+    }
+    check[7] = three2;
     four2 = rand() % 52;
+     while(four2 == check[0] || four2 == check[1] || four2 == check[2] || four2 == check[3] || four2 == check[4] || four2 == check[5] || four2 == check[6] || four2 == check[7]){
+        four2 = rand() % 52;
+    }
+    check[8] = four2;
     five2 = rand() % 52;
+     while(five2 == check[0] || five2 == check[1] || five2 == check[2] || five2 == check[3] || five2 == check[4] || five2 == check[5] || five2 == check[6] || five2 == check[7] || five2 == check[8]){
+        five2 = rand() % 52;
+    }
+    check[9] = five2;
+    
+   
+
     std::cout << "1 : ";
     cards(one);
     std::cout << "2 : ";
