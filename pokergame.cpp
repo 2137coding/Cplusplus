@@ -167,7 +167,39 @@ int main(){
         }
     }
     }
-    
+    std::vector<int> change_2cards {one2,two2,three2,four2,five2};
+    timeresult2 = cards_review(change_2cards);
+    if(timeresult2 < 4000){
+        one2 = rand() % 52;
+        while(one2 == check[0] || one2 == check[1] || one2 == check[2] || one2 == check[3] || one2 == check[4] || one2 == check[5] || one2 == check[6] || one2 == check[7] || one2 == check[8] || one2 == check[9] || one2 == check2[0] || one2 == check2[1] || one2 == check2[2] || one2 == check2[3] || one2 == check2[4]){
+            one2 = rand() % 52;
+        }
+        check2[5] = one2;
+
+        two2 = rand() % 52;
+        while(two2 == check[0] || two2 == check[1] || two2 == check[2] || two2 == check[3] || two2 == check[4] || two2 == check[5] || two2 == check[6] || two2 == check[7] || two2 == check[8] || two2 == check[9] || two2 == check2[0] || two2 == check2[1] || two2 == check2[2] || two2 == check2[3] || two2 == check2[4] || two2 == check2[5]){
+            two2 = rand() % 52;
+        }
+        check2[6] = two2;
+
+        three2 = rand() % 52;
+        while(three2 == check[0] || three2 == check[1] || three2 == check[2] || three2 == check[3] || three2 == check[4] || three2 == check[5] || three2 == check[6] || three2 == check[7] || three2 == check[8] || three2 == check[9] || three2 == check2[0] || three2 == check2[1] || three2 == check2[2] || three2 == check2[3] || three2 == check2[4] || three2 == check2[5] || three2 == check2[6]){
+            three2 = rand() % 52;
+        }
+        check2[7] = three2;
+
+        four2 = rand() % 52;
+        while(four2 == check[0] || four2 == check[1] || four2 == check[2] || four2 == check[3] || four2 == check[4] || four2 == check[5] || four2 == check[6] || four2 == check[7] || four2 == check[8] || four2 == check[9] || four2 == check2[0] || four2 == check2[1] || four2 == check2[2] || four2 == check2[3] || four2 == check2[4] || four2 == check2[5] || four2 == check2[6] || four2 == check2[7]){
+            four2 = rand() % 52;
+        }
+        check2[8] = four2;
+
+        five2 = rand() % 52;
+        while(five2 == check[0] || five2 == check[1] || five2 == check[2] || five2 == check[3] || five2 == check[4] || five2 == check[5] || five2 == check[6] || five2 == check[7] || five2 == check[8] || five2 == check[9] || five2 == check2[0] || five2 == check2[1] || five2 == check2[2] || five2 == check2[3] || five2 == check2[4] || five2 == check2[5] || five2 == check2[6] || five2 == check2[7] || five2 == check[8]){
+            five2 = rand() % 52;
+        }
+        check2[9] = five2;
+    }
     std::cout << std::endl;
     std::cout << std::endl;
     std::cout << "Wpłaty: Zdecyduj ile wpłacisz ty i przeciwnik" << std::endl;
