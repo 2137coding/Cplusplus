@@ -31,7 +31,7 @@ int main(){
     int trade1;
     int timeresult2;
     int check [10];
-    int check2 [10];
+    int check2 [10] {100,100,100,100,100,100,100,100,100,100};
     while(cash1 > 0 && cash2 > 0){
     std::cout << "Krupier rozdaje karty" << std::endl;
     std::cout << "Twoje karty : " << std::endl;
