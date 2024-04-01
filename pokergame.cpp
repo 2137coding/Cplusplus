@@ -29,7 +29,9 @@ int main(){
     int four2;
     int five2;
     int trade1;
+    int timeresult2;
     int check [10];
+    int check2 [10];
     while(cash1 > 0 && cash2 > 0){
     std::cout << "Krupier rozdaje karty" << std::endl;
     std::cout << "Twoje karty : " << std::endl;
@@ -112,30 +114,50 @@ int main(){
     switch(trade[i]){
         case 1: {
             one = rand() % 52;
+        while(one == check[0] || one == check[1] || one == check[2] || one == check[3] || one == check[4] || one == check[5] || one == check[6] || one == check[7] || one == check[8] || one == check[9]){
+            one = rand() % 52;
+        }
+        check2[0] = one;
             cards(one);
         }
         break;
 
         case 2: {
             two = rand() % 52;
+        while(two == check[0] || two == check[1] || two == check[2] || two == check[3] || two == check[4] || two == check[5] || two == check[6] || two == check[7] || two == check[8] || two == check[9] || two == check2[0]){
+            two = rand() % 52;
+        }
+        check2[1] = one;
             cards(two);
         }
         break;
 
         case 3: {
             three = rand() % 52;
+        while(three == check[0] || three == check[1] || three == check[2] || three == check[3] || three == check[4] || three == check[5] || three == check[6] || three == check[7] || three == check[8] || three == check[9] || three == check2[0] || three == check2[1]){
+            three = rand() % 52;
+        }
+        check2[2] = three;
             cards(three);
         }
         break;
 
         case 4: {
             four = rand() % 52;
+        while(four == check[0] || four == check[1] || four == check[2] || four == check[3] || four == check[4] || four == check[5] || four == check[6] || four == check[7] || four == check[8] || four == check[9] || four == check2[0] || four == check2[1] || four == check2[2]){
+            three = rand() % 52;
+        }
+        check2[3] = four;
             cards(four);
         }
         break;
 
         case 5: {
             five = rand() % 52;
+        while(five == check[0] || five == check[1] || five == check[2] || five == check[3] || five == check[4] || five == check[5] || five == check[6] || five == check[7] || five == check[8] || five == check[9] || five == check2[0] || five == check2[1] || five == check2[2] || five == check2[3]){
+            five = rand() % 52;
+        }
+        check2[4] = five;
             cards(five);
         }
         break;
@@ -145,6 +167,7 @@ int main(){
         }
     }
     }
+    
     std::cout << std::endl;
     std::cout << std::endl;
     std::cout << "Wpłaty: Zdecyduj ile wpłacisz ty i przeciwnik" << std::endl;
