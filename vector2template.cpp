@@ -2,17 +2,45 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <concepts>
 
-template <typename T> void see(const std::vector<T>& x);
-template <typename T> void sum(const std::vector<T>& x);
-template <typename T> void minus_sum(const std::vector<T>& x, const std::vector<T>& y);
-template <typename T> void plus_sum(const std::vector<T>& x, const std::vector<T>& y);
-template <typename T> void average(const std::vector<T>& x);
-template <typename T> void sum_of_numbers(const std::vector<T>& x, const std::vector<T>& y);
-template <typename T> void minus_of_numbers(const std::vector<T>& x, const std::vector<T>& y);
-template <typename T>void add(std::vector<T>& x,T y);
-template <typename T> void erase(std::vector<T>& x,T y);
-template <typename T> void brand_new_array(std::vector<T>& x);
+template <typename T>
+concept type = requires(T a){
+    requires sizeof(T) >= 4;
+};
+
+
+
+template <typename T>
+requires type<T>
+ void see(const std::vector<T>& x);
+template <typename T>
+requires type<T>
+ void sum(const std::vector<T>& x);
+template <typename T>
+requires type<T>
+ void minus_sum(const std::vector<T>& x, const std::vector<T>& y);
+template <typename T>
+requires type<T>
+ void plus_sum(const std::vector<T>& x, const std::vector<T>& y);
+template <typename T>
+requires type<T>
+ void average(const std::vector<T>& x);
+template <typename T>
+requires type<T>
+ void sum_of_numbers(const std::vector<T>& x, const std::vector<T>& y);
+template <typename T>
+requires type<T>
+ void minus_of_numbers(const std::vector<T>& x, const std::vector<T>& y);
+template <typename T>
+requires type<T>
+void add(std::vector<T>& x,T y);
+template <typename T>
+requires type<T>
+ void erase(std::vector<T>& x,T y);
+template <typename T>
+requires type<T>
+ void brand_new_array(std::vector<T>& x);
 
 
 
@@ -210,7 +238,9 @@ int main(){
     return 0;
 }
 
-template <typename T> void see(const std::vector<T>& x){
+template <typename T>
+requires type<T>
+ void see(const std::vector<T>& x){
     std::cout << std::endl;
     std::cout << std::endl;
     for(size_t i {0}; i < x.size();++i){
@@ -221,7 +251,9 @@ template <typename T> void see(const std::vector<T>& x){
     std::cout << std::endl;
 }
 
-template <typename T> void sum(const std::vector<T>& x){
+template <typename T>
+requires type<T>
+ void sum(const std::vector<T>& x){
     T sum1 {0};
     for(size_t i {0}; i < x.size();++i){
          sum1 += x[i];
@@ -234,7 +266,9 @@ template <typename T> void sum(const std::vector<T>& x){
     std::cout << std::endl;
 }
 
-template <typename T> void minus_sum(const std::vector<T>& x, const std::vector<T>& y){
+template <typename T>
+requires type<T>
+ void minus_sum(const std::vector<T>& x, const std::vector<T>& y){
     T sum1 {0};
     T sum2 {0};
     for(size_t i {0}; i < x.size();++i){
@@ -250,7 +284,9 @@ template <typename T> void minus_sum(const std::vector<T>& x, const std::vector<
     std::cout << std::endl;
 }
 
-template <typename T> void plus_sum(const std::vector<T>& x, const std::vector<T>& y){
+template <typename T>
+requires type<T>
+ void plus_sum(const std::vector<T>& x, const std::vector<T>& y){
     T sum1 {0};
     T sum2 {0};
     for(size_t i {0}; i < x.size();++i){
@@ -266,7 +302,9 @@ template <typename T> void plus_sum(const std::vector<T>& x, const std::vector<T
     std::cout << std::endl;
 }
 
-template <typename T> void average(const std::vector<T>& x){
+template <typename T>
+requires type<T>
+ void average(const std::vector<T>& x){
     T sum {0};
     for(size_t i {0}; i < x.size();++i){
         sum += x[i];
@@ -278,7 +316,9 @@ template <typename T> void average(const std::vector<T>& x){
     std::cout << std::endl;
 }
 
-template <typename T> void sum_of_numbers(const std::vector<T>& x, const std::vector<T>& y){
+template <typename T>
+requires type<T>
+ void sum_of_numbers(const std::vector<T>& x, const std::vector<T>& y){
     std::vector<T> sum_number;
     T sum {0};
     if(x.size() != y.size()){
@@ -300,7 +340,9 @@ template <typename T> void sum_of_numbers(const std::vector<T>& x, const std::ve
     std::cout << std::endl;
 }
 
-template <typename T> void minus_of_numbers(const std::vector<T>& x, const std::vector<T>& y){
+template <typename T>
+requires type<T>
+ void minus_of_numbers(const std::vector<T>& x, const std::vector<T>& y){
     std::vector<T> minus_number;
     T minus {0};
     if(x.size() != y.size()){
@@ -321,11 +363,15 @@ template <typename T> void minus_of_numbers(const std::vector<T>& x, const std::
     std::cout << std::endl;
 }
 
-template <typename T> void add(std::vector<T>& x, T y){
+template <typename T>
+requires type<T>
+ void add(std::vector<T>& x, T y){
     x.push_back(y);
 }
 
-template <typename T> void erase(std::vector<T>& x, T y){
+template <typename T>
+requires type<T>
+ void erase(std::vector<T>& x, T y){
     auto z = std::find(x.begin(),x.end(),y);
     if(z != x.end()){
         x.erase(z);
@@ -338,7 +384,9 @@ template <typename T> void erase(std::vector<T>& x, T y){
     }
 }
 
-template <typename T> void brand_new_array(std::vector<T>& x){
+template <typename T>
+requires type<T>
+ void brand_new_array(std::vector<T>& x){
     x.clear();
     int input1;
     std::cout << std::endl;
@@ -351,4 +399,3 @@ template <typename T> void brand_new_array(std::vector<T>& x){
     }
     
 }
-
