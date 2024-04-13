@@ -40,17 +40,25 @@ class person{
             }
         }
 
-        void display_adult(){
-            if(adult == true){
-                std::cout << std::setw(x) << name << "  " << std::setw(x) << surname << "  " << std::setw(x) <<  "adult" << std::endl;
-            }
-        }
+};
+
+class book{
+    public :
+        int index;
+        std::string book_name;
+        int year;
+
+    private :
+    
+
+
 
 };
 template <typename T>
 void add(std::vector<T>& a);
 void list(std::vector<person>& a);
 void adults (std::vector<person>& a);
+void kids(std::vector<person>& a);
 void erase(std::vector<person>& a);
 
 
@@ -64,6 +72,8 @@ int main(){
             list(a);
         }else if(command == "adults"){
             adults(a);
+        }else if(command == "kids"){
+            kids(a);
         }
 
     }
@@ -84,16 +94,23 @@ void list(std::vector<person>& a){
     }
 }
 
-
-
-
-
 void adults(std::vector<person>& a){
     for(size_t i {0}; i < a.size();++i){
         a[i].check();
-        
-        std::cout << "index : " <<  (i+1) << "  ";
-        a[i].display_adult();
+        if(a[i].adult){
+            std::cout << "index : " <<  (i+1) << "  ";
+        a[i].display();
+        }
+    }
+    }
+
+    void kids(std::vector<person>& a){
+        for(size_t i {0}; i < a.size();++i){
+            a[i].check();
+            if(a[i].adult == false){
+                std::cout << "index : " <<  (i+1) << "  ";
+                a[i].display();
+            }
         }
     }
 
