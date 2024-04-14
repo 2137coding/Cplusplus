@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <iomanip>
-#include <algorithm>
 
 class person{
     public :
@@ -93,7 +92,9 @@ template <typename T>
 void index(std::vector<T>& b);
 void get_id(std::vector<person>& a,std::vector<borrowing>& c);
 void add_id(std::vector<borrowing>& c);
-void erase(std::vector<person>& a);
+template <typename T>
+void erase(std::vector<T>& a);
+void erase_borrow(std::vector<borrowing>& c);
 
 
 int main(){
@@ -111,6 +112,9 @@ int main(){
             adults(a);
         }else if(command == "kids"){
             kids(a);
+        }else if(command == "erase"){
+            erase(a);
+            index(a);
         }
         if(command == "change_to_books"){
             while(std::cin >> command && command != "change_to_persons" && command != "change_to_borrowing"){
@@ -120,18 +124,23 @@ int main(){
                 }else if(command == "list"){
                     list(b);
 
+                }else if(command == "erase"){
+                    erase(b);
+                    index(a);
                 }
             }
         }
         if(command == "change_to_borrowing"){
             while(std::cin >> command && command != "change_to_person" && command != "change_to_books"){
             get_id(a,c);
-            if(command == "add_borrow"){
+            if(command == "add"){
                add_id(c);
             }else if(command == "list"){
                 for(size_t i {0}; i < c.size();++i){
                     c[i].display();
                 }
+            }else if(command == "erase"){
+                erase_borrow(c);
             }
         }
         }
@@ -204,4 +213,24 @@ void add_id(std::vector<borrowing>& c){
         }
        }
 
+}
+
+template <typename T>
+void erase(std::vector<T>& a){
+    std::cout << "type ID to erase" << std::endl;
+    int index;
+    std::cin >> index;
+    typename std::vector<T>::iterator x = a.begin() + index;
+    a.erase(x);
+}
+
+void erase_borrow(std::vector<borrowing>& c){
+    std::cout << "type ID of person to erase the borrow" << std::endl;
+    int bor;
+    std::cin >> bor;
+    for(size_t i {0}; i < c.size();++i){
+        if(c[i].id_person == bor){
+            c[i].id_book = 9999;
+        }
+    }
 }
