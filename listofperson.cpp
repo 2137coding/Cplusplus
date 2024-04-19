@@ -94,7 +94,10 @@ void get_id(std::vector<person>& a,std::vector<borrowing>& c);
 void add_id(std::vector<borrowing>& c);
 template <typename T>
 void erase(std::vector<T>& a);
+void erase_person(std::vector<person>& a,std::vector<borrowing>& c);
 void erase_borrow(std::vector<borrowing>& c);
+
+
 
 
 int main(){
@@ -113,7 +116,7 @@ int main(){
         }else if(command == "kids"){
             kids(a);
         }else if(command == "erase"){
-            erase(a);
+            erase_person(a,c);
             index(a);
         }
         if(command == "change_to_books"){
@@ -191,8 +194,11 @@ void index(std::vector<T>& b){
     }
 }
 
+
 void get_id(std::vector<person>& a, std::vector<borrowing>& c){
+    std::vector<borrowing>::iterator y = c.begin();
     borrowing x;
+    if(c.size() == 0){
     for(size_t i {0}; i < a.size();++i){
         c.push_back(x);
     }
@@ -200,7 +206,20 @@ void get_id(std::vector<person>& a, std::vector<borrowing>& c){
         c[i].id_person = a[i].index;
         
     }
+    }
+    if(c.size() != a.size()){
+        while(c.size() < a.size()){
+            c.push_back(x);
+            
+        }
+    }
+    for(size_t i {0}; i < a.size();++i){
+        c[i].id_person = a[i].index;
+        
+    }
+    
 }
+
 
 void add_id(std::vector<borrowing>& c){
     std::cout << "Type id of person and id of book" << std::endl;
@@ -218,10 +237,20 @@ void add_id(std::vector<borrowing>& c){
 template <typename T>
 void erase(std::vector<T>& a){
     std::cout << "type ID to erase" << std::endl;
-    int index;
-    std::cin >> index;
-    typename std::vector<T>::iterator x = a.begin() + index;
+    int index1;
+    std::cin >> index1;
+    typename std::vector<T>::iterator x = a.begin() + index1;
     a.erase(x);
+}
+
+void erase_person(std::vector<person>& a,std::vector<borrowing>& c){
+    std::cout << "type ID to erase" << std::endl;
+    int indexx;
+    std::cin >> indexx;
+    std::vector<person>::iterator x = a.begin() + indexx;
+    std::vector<borrowing>::iterator y = c.begin() + indexx;
+    a.erase(x);
+    c.erase(y);
 }
 
 void erase_borrow(std::vector<borrowing>& c){
