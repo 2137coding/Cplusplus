@@ -70,6 +70,7 @@ class borrowing{
         int id_book {9999};
         int x {15};
 
+        borrowing() = default;
     public :
     void display(){
         if(id_book != 9999){
