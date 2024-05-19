@@ -261,7 +261,7 @@ void adults(std::vector<person>* a){
 template <typename T>
 void index(std::vector<T>* b){
     for(size_t i {0}; i < b->size();++i){
-        *(*b)[i].index = i;
+        *(*b)[i].indexx = i;
     }
 }
 
@@ -274,7 +274,7 @@ void get_id(std::vector<person>* a, std::vector<borrowing>* c){
         c->push_back(x);
     }
     for(size_t i {0}; i < a->size();++i){
-        *(*c)[i].id_person = *(*a)[i].index;
+        *(*c)[i].id_person = *(*a)[i].indexx;
         
     }
     }
@@ -285,7 +285,7 @@ void get_id(std::vector<person>* a, std::vector<borrowing>* c){
         }
     }
     for(size_t i {0}; i < a->size();++i){
-        *(*c)[i].id_person = *(*a)[i].index;
+        *(*c)[i].id_person = *(*a)[i].indexx;
         
     }
     
