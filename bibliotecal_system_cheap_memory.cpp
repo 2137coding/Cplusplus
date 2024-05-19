@@ -9,7 +9,7 @@ class person{
         std::string* name = new std::string;
         std::string* surname = new std::string;
         bool* adult = new bool;
-        int* index = new int {0};
+        int* indexx = new int {0};
         int* x = new int {15};
     
     public:
@@ -26,7 +26,7 @@ class person{
             delete name;
             delete surname;
             delete adult;
-            delete index;
+            delete indexx;
             delete x;
         }
 
@@ -52,7 +52,7 @@ class person{
 
 class book{
     public :
-        int* index = new int {9999};
+        int* indexx = new int {9999};
         std::string* book_name = new std::string;
         int* year = new int;
         int* x = new int {15};
@@ -65,7 +65,7 @@ class book{
         }
 
         ~book(){
-            delete index;
+            delete indexx;
             delete book_name;
             delete year;
             delete x;
