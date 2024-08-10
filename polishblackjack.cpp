@@ -105,14 +105,14 @@ class enemy{
                         }
                     }else if(*score < 100){
                         *score = *x * *y;
-                        if(*score > 4.54){
+                        if(*score > 6.54){
                             return true;
                         }else{
                             return false;
                         }
                     }else if(*score > 100 ){
                         *score = *x * *y;
-                        if(*score > 7.32){
+                        if(*score > 9.32){
                             return true;
                         }else{
                             return false;
@@ -145,7 +145,7 @@ class enemy{
                         false;
                     }
                 }
-            }else if(*number <= 2 && *AI_number >= 2){
+            }else if(*number < 2 && *AI_number >= 2){
                 *score = *x * *y * *AI_review;
                 if(*score < 15){
                     *score = *x * *y;
@@ -162,6 +162,30 @@ class enemy{
                         return false;
                     }
                 }else if(*score > 50){
+                    *score = *x * *y;
+                    if(*score > 9.93){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }
+            }else if(*number = 2 && *AI_number >= 2){
+                *score = *x * *y * *AI_review;
+                if(*score < 60){
+                    *score = *x * *y;
+                    if(*score > 3.85){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }else if(*score < 88){
+                    *score = *x * *y;
+                    if(*score > 5.67){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }else if(*score > 88){
                     *score = *x * *y;
                     if(*score > 9.93){
                         return true;
@@ -330,6 +354,8 @@ int main(){
             std::cout << "You win" << std::endl;
         }else if(AI_scoremy > scoremy && AI_scoremy <= 21){
             std::cout << "enemy wins" << std::endl;
+        }else if(scoremy == AI_scoremy && scoremy > 21 && AI_scoremy > 21){
+            std::cout << "draw" << std::endl;
         }
         std::cout << "you :" << scoremy << " :: AI " << AI_scoremy;
 
