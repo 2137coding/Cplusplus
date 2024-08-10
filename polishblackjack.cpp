@@ -5,8 +5,10 @@
 
 template <typename T> void cards(T a);
 template <typename T> int review(T& a,std::vector<int>& cards);
-std::vector<int> number_cards {0,0,0,0,0,0,0,0,0};
-std::vector<int> AI_number_cards {0,0,0,0,0,0,0,0,0};
+void cardint(std::vector<int> x, std::vector<int>& y);
+void clear(std::vector<int>& x);
+std::vector<int> number_cards {0,0,0,0,0,0,0,0,0,0,0,0,0};
+std::vector<int> AI_number_cards {0,0,0,0,0,0,0,0,0,0,0,0,0};
 
 
 class enemy{
@@ -28,10 +30,10 @@ class enemy{
         }
 
 
-        void numbers(std::vector<int> x){
-            for(size_t i; i < x.size();++i){
+        void numbers(std::vector<int>& x){
+            for(size_t i {0}; i < x.size();++i){
                 if(x[i] > 0){
-                number++;
+                (*number)++;
                 }
             }
         }
@@ -39,13 +41,27 @@ class enemy{
         void AI_numbers(std::vector<int> x){
             for(size_t i; i < x.size();++i){
                 if(x[i] > 0){
-                number++;
+                (*AI_number)++;
                 }
             }
         }
 
+        void clean(){
+            AI_number_cards.clear();
+            for(size_t i {0}; i < 13;++i){
+                AI_number_cards.push_back(0);
+                *AI_number = 0;
+        }
+
+}
+
         void en_review(std::vector<int> encards){
             *AI_review = review(encards,AI_number_cards);
+            /*AI_number_cards.clear();
+            for(size_t i {0}; i < 13;++i){
+                AI_number_cards.push_back(0);
+            } 
+            */
         }
 
         bool exchange(){
@@ -68,28 +84,28 @@ class enemy{
                     *score = *x * *y * *AI_review;
                     if(*score < 20){
                         *score = *x * *y;
-                        if(*score > 0.096){
+                        if(*score > 1.096){
                             return true;
                         }else{
                             return false;
                         }
                     }else if(*score < 60){
                         *score = *x * *y;
-                        if(*score > 1.80){
+                        if(*score > 2.80){
                             return true;
                         }else{
                             return false;
                         }
                     }else if(*score < 90){
                         *score = *x * *y;
-                        if(*score > 2.99){
+                        if(*score > 3.99){
                             return true;
                         }else{
                             return false;
                         }
                     }else if(*score < 100){
                         *score = *x * *y;
-                        if(*score > 3.54){
+                        if(*score > 4.54){
                             return true;
                         }else{
                             return false;
@@ -103,7 +119,58 @@ class enemy{
                         }
                     }
 
+            }else if(*number > 2 && *AI_number >= 4){
+                *score = *x * *y * *AI_review;
+                if(*score < 100){
+                    *score = *x * *y;
+                    if(*score > 8.00){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }
+                else if(*score < 150){
+                    *score = *x * *y;
+                    if(*score > 9.00){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }
+                else if(*score < 150){
+                    *score = *x * *y;
+                    if(*score > 9.87){
+                        return true;
+                    }else{
+                        false;
+                    }
+                }
+            }else if(*number <= 2 && *AI_number >= 2){
+                *score = *x * *y * *AI_review;
+                if(*score < 15){
+                    *score = *x * *y;
+                    if(*score > 3.85){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }else if(*score < 50){
+                    *score = *x * *y;
+                    if(*score > 5.67){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }else if(*score > 50){
+                    *score = *x * *y;
+                    if(*score > 9.93){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }
             }
+            
         }
 
 
@@ -187,75 +254,101 @@ int main(){
             }
         }
     }
-    review(mycards,number_cards);
+    scoremy = review(mycards,number_cards);
+    std::cout << "==================================================" << std::endl;
     //another player plays
-    AI.numbers(number_cards);
-    AI.AI_numbers(AI_number_cards);
-    AI.en_review(en_cards);
-    while(AI_status == true){
+    AI.numbers(number_cards);  // one time ussage
+    AI.en_review(en_cards);  //AI_number = x
+    AI.AI_numbers(AI_number_cards); //AI_number = x
+    AI.clean(); //AI_number = 0
+    if(AI_status == true){
         one2 = rand() % 52;
         
         while(one2 == check[0] || one2 == check[1] || one2 == check[2] || one2 == check[3] || one2 == check[4]){
         one2 = rand() % 52;
     }
         check[5] = one2;
+        cards(one2);
         en_cards.push_back(one2);
-        AI.AI_numbers(AI_number_cards);
-        AI.en_review(en_cards);
+        AI.en_review(en_cards);  //AI_number = x
+        AI.AI_numbers(AI_number_cards); //AI_number = x
         AI_status = AI.exchange();
-        two2 = rand() % 52;
-        while(two2 == check[0] || two2 == check[1] || two2 == check[2] || two2 == check[3] || two2 == check[4] || two2 == check[5]){
-            two2 = rand() % 52;
-        }
-        check[6] = two2;
-        AI.AI_numbers(AI_number_cards);
-        AI.en_review(en_cards);
-        AI_status = AI.exchange();
-        three2 = rand() % 52;
-        while(three2 == check[0] || three2 == check[1] || three2 == check[2] || three2 == check[3] || three2 == check[4] || three2 == check[5] || three2 == check[6]){
-            three2 = rand() % 52;
-        }
-        check[7] = three2;
-        AI.AI_numbers(AI_number_cards);
-        AI.en_review(en_cards);
-        AI_status = AI.exchange();
-        four2 = rand() % 52;
-        while(four2 == check[0] || four2 == check[1] || four2 == check[2] || four2 == check[3] || four2 == check[4] || four2 == check[5] || four2 == check[6] || four2 == check[7]){
-            four2 = rand() % 52;
-        }
-        check[8] = four2;
-        AI.AI_numbers(AI_number_cards);
-        AI.en_review(en_cards);
-        AI_status = AI.exchange();
-        five2 = rand() % 52;
-        while(five2 == check[0] || five2 == check[1] || five2 == check[2] || five2 == check[3] || five2 == check[4] || five2 == check[5] || five2 == check[6] || five2 == check[7] || five2 == check[8]){
-            five2 = rand() % 52;
-        }
-        check[9] = five2;
+        AI.clean(); //AI_number = 0
 
-        }
+            if(AI_status == true){
+                two2 = rand() % 52;
+                while(two2 == check[0] || two2 == check[1] || two2 == check[2] || two2 == check[3] || two2 == check[4] || two2 == check[5]){
+                    two2 = rand() % 52;
+                }
+                check[6] = two2;
+                cards(two2);
+                en_cards.push_back(two2);
+                AI.en_review(en_cards);  //AI_number = x
+                AI.AI_numbers(AI_number_cards); //AI_number = x
+                AI_status = AI.exchange();
+                AI.clean(); //AI_number = 0
+                if(AI_status == true){
+                    three2 = rand() % 52;
+                    while(three2 == check[0] || three2 == check[1] || three2 == check[2] || three2 == check[3] || three2 == check[4] || three2 == check[5] || three2 == check[6]){
+                        three2 = rand() % 52;
+                    }
+                    check[7] = three2;
+                    cards(three2);
+                    en_cards.push_back(three2);
+                    AI.en_review(en_cards);  //AI_number = x
+                    AI.AI_numbers(AI_number_cards); //AI_number = x
+                    AI_status = AI.exchange();
+                    AI.clean(); //AI_number = 0
+                     if(AI_status == true){
+                            four2 = rand() % 52;
+                            while(four2 == check[0] || four2 == check[1] || four2 == check[2] || four2 == check[3] || four2 == check[4] || four2 == check[5] || four2 == check[6] || four2 == check[7]){
+                                four2 = rand() % 52;
+                            }
+                            check[8] = four2;
+                            cards(four2);
+                            en_cards.push_back(four2);
+                            AI.en_review(en_cards);  //AI_number = x
+                            AI.AI_numbers(AI_number_cards); //AI_number = x
+                            AI_status = AI.exchange();
+                            AI.clean(); //AI_number = 0
+                            five2 = rand() % 52;
+                            while(five2 == check[0] || five2 == check[1] || five2 == check[2] || five2 == check[3] || five2 == check[4] || five2 == check[5] || five2 == check[6] || five2 == check[7] || five2 == check[8]){
+                                five2 = rand() % 52;
+                        }
+                            check[9] = five2;
+                            cards(five2);
+                            en_cards.push_back(five2);
+                     }
+            }
+            }
+    }
+         std::cout << "==================================================" << std::endl;
 
-        scoremy = review(mycards,number_cards);
+        //scoremy = review(mycards,number_cards);
         AI_scoremy = review(en_cards,AI_number_cards);
         if((scoremy > AI_scoremy) && scoremy <= 21){
             std::cout << "You win" << std::endl;
         }else if(AI_scoremy > scoremy && AI_scoremy <= 21){
             std::cout << "enemy wins" << std::endl;
         }
-        std::cout << "nig";
+        std::cout << "you :" << scoremy << " :: AI " << AI_scoremy;
+
+        
 
     return 0; 
 }
 
 template <typename T> int review(T& a,std::vector<int>& cards){
     std::vector<int> ranks {11,4,3,2,10,9,8,7,6,5,4,3,2};
+    //std::vector<int> number_cards {0,0,0,0,0,0,0,0,0};
     std::vector<int> score;
-    int score1;
-    for(size_t i;i < a.size();++i){
+    int score1 {0};
+    for(size_t i {0};i < a.size();++i){
         cards[a[i] % 13]++;
         
     }
-    for(size_t i; i < cards.size();++i){
+    
+    for(size_t i {0}; i < cards.size();++i){
         if(cards[i] != 0 && cards[i] < 2){
             score.push_back(ranks[i]);
 
@@ -274,12 +367,22 @@ template <typename T> int review(T& a,std::vector<int>& cards){
             score.push_back(ranks[i]);
         }
     }
-
+    
     for(int x : score){
         score1 += x;
     }
     return score1;
 }
+
+
+/*
+void cardint(std::vector<int> x, std::vector<int>& y){
+   for(size_t i {0}; i < x.size(); ++i){
+        y[x[i] % 13]++;
+   }
+
+}
+*/
 
 template <typename T> void cards(T a){
     switch(a){
