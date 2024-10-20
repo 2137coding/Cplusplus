@@ -1,11 +1,14 @@
 #include <iostream>
 
-void quest(std::string& a,std::string& b,std::string& c);
+void quest(std::string& a,std::string& b,std::string& c,int& points,int& sum);
+void mark(int& points,int& sum);
 
 int main(){
-    std::string a [60];  //answear
-    std::string b [60];  // polish word
-    std::string c [60];  // english word
+    int x;  //sum of player points
+    int y;  //all points
+    std::string a [262];  //answear
+    std::string b [262];  // polish word
+    std::string c [262];  // english word
     std::cout << "Type word from polish to english, good luck" << std::endl;
     quest(a[0], b[0] = "x", c[0] = "y");
 quest(a[1], b[1] = "x", c[1] = "y");
@@ -129,23 +132,35 @@ quest(a[118], b[118] = "x", c[118] = "y");
 quest(a[119], b[119] = "x", c[119] = "y");
 quest(a[120], b[120] = "x", c[120] = "y");
   
-   
+   mark(x,y);
+  std::cin >> x;
     
     return 0;
 }
 
 
-void quest(std::string& a,std::string& b, std::string& c){
+void quest(std::string& a,std::string& b, std::string& c,int& points,int& sum){
     std::cout << b << std::endl;
-    std::cin >> a;
+    std::getline(std::cin, a);
     if(a == c){
         std::cout << "===========" << std::endl;
         std::cout << "GOOD ANSWEAR" << std::endl;
         std::cout << "===========" << std::endl;
+        points++;
+        sum++;
     }else{
          std::cout << "===========" << std::endl;
         std::cout << "BAD ANSWEAR. GOOD: " << c << std::endl;
         std::cout << "===========" << std::endl;
+        sum++;
     }
+
+}
+
+
+void mark(int& points,int& sum){
+    double a = points;
+    double b = sum;
+    std::cout << "You got : " << 100*(a/b) << "%" << std::endl;
 
 }
