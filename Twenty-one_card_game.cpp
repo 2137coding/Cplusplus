@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <vector>
+#include <map>
 
 template <typename T> void cards(T a);
 template <typename T> int review(T& a,std::vector<int>& cards);
@@ -11,6 +12,61 @@ int is_Ace(std::vector<int>& cards);
 std::vector<int> number_cards {0,0,0,0,0,0,0,0,0,0,0,0,0};
 std::vector<int> AI_number_cards {0,0,0,0,0,0,0,0,0,0,0,0,0};
 
+
+std::map<int, std::string> all_cards {
+    {1, "Ace of Diamonds"},
+    {2, "King of Diamonds"},
+    {3, "Queen of Diamonds"},
+    {3, "Jack of Diamonds"}, 
+    {4, "Ten of Diamonds"}, 
+    {5, "Nine of Diamonds"}, 
+    {6, "Eight of Diamonds"}, 
+    {7, "Seven of Diamonds"}, 
+    {8, "Six of Diamonds"}, 
+    {9, "Five of Diamonds"}, 
+    {10, "Four of Diamonds"}, 
+    {11, "Three of Diamonds"}, 
+    {12, "Two of Diamonds"}, 
+    {13, "Ace of Hearts"}, 
+    {14, "King of Hearts"}, 
+    {15, "Queen of Hearts"}, 
+    {16, "Jack of Hearts"}, 
+    {17, "Ten of Hearts"}, 
+    {18, "Nine of Hearts"}, 
+    {19, "Eight of Hearts"}, 
+    {20, "Seven of Hearts"}, 
+    {21, "Six of Hearts"}, 
+    {22, "Five of Hearts"}, 
+    {23, "Four of Hearts"}, 
+    {24, "Three of Hearts"}, 
+    {25, "Two of Hearts"}, 
+    {26, "Ace of Spades"}, 
+    {27, "King of Spades"}, 
+    {28, "Queen of Spades"}, 
+    {29, "Jack of Spades"}, 
+    {30, "Ten of Spades"}, 
+    {31, "Nine of Spades"}, 
+    {32, "Eight of Spades"}, 
+    {33, "Seven of Spades"}, 
+    {34, "Six of Spades"}, 
+    {35, "Five of Spades"}, 
+    {36, "Four of Spades"},
+    {37, "Three of Spades"}, 
+    {38, "Two of Spades"}, 
+    {39, "Ace of Clubs"}, 
+    {40, "King of Clubs"}, 
+    {41, "Queen of Clubs"}, 
+    {42, "Jack of Clubs"}, 
+    {43, "Ten of Clubs"}, 
+    {44, "Nine of Clubs"}, 
+    {45, "Eight of Clubs"}, 
+    {46, "Seven of Clubs"}, 
+    {47, "Six of Clubs"}, 
+    {48, "Five of Clubs"}, 
+    {49, "Four of Clubs"}, 
+    {50, "Three of Clubs"}, 
+    {51, "Two of Clubs"},
+};
 
 class enemy {
     public:
@@ -671,265 +727,10 @@ void cardint(std::vector<int> x, std::vector<int>& y){
 */
 
 template <typename T> void cards(T a){
-    switch(a){
-    case 0:{
-        std::cout << "Ace of Diamonds" << std::endl;
-    }
-    break;
-
-    case 1:{
-        std::cout << "King of Diamonds" << std::endl;
-    }
-    break;
-
-    case 2:{
-        std::cout << "Queen of Diamonds" << std::endl;
-    }
-    break;
-
-    case 3:{
-        std::cout << "Jack of Diamonds" << std::endl;
-    }
-    break;
-
-    case 4:{
-        std::cout << "Ten of Diamonds" << std::endl;
-    }
-    break;
-
-    case 5:{
-        std::cout << "Nine of Diamonds" << std::endl;
-    }
-    break;
-
-    case 6:{
-        std::cout << "Eight of Diamonds" << std::endl;
-    }
-    break;
-
-    case 7:{
-        std::cout << "Seven of Diamonds" << std::endl;
-    }
-    break;
-
-    case 8:{
-        std::cout << "Six of Diamonds" << std::endl;
-    }
-    break;
-
-    case 9:{
-        std::cout << "Five of Diamonds" << std::endl;
-    }
-    break;
-
-    case 10:{
-        std::cout << "Four of Diamonds" << std::endl;
-    }
-    break;
-
-    case 11:{
-        std::cout << "Three of Diamonds" << std::endl;
-    }
-    break;
-
-    case 12:{
-        std::cout << "Two of Diamonds" << std::endl;
-    }
-    break;
-
-    case 13:{
-        std::cout << "Ace of Hearts" << std::endl;
-    }
-    break;
-
-    case 14:{
-        std::cout << "King of Hearts" << std::endl;
-    }
-    break;
-
-    case 15:{
-        std::cout << "Queen of Hearts" << std::endl;
-    }
-    break;
-
-    case 16:{
-        std::cout << "Jack of Hearts" << std::endl;
-    }
-    break;
-
-    case 17:{
-        std::cout << "Ten of Hearts" << std::endl;
-    }
-    break;
-
-    case 18:{
-        std::cout << "Nine of Hearts" << std::endl;
-    }
-    break;
-
-    case 19:{
-        std::cout << "Eight of Hearts" << std::endl;
-    }
-    break;
-
-    case 20:{
-        std::cout << "Seven of Hearts" << std::endl;
-    }
-    break;
-
-    case 21:{
-        std::cout << "Six of Hearts" << std::endl;
-    }
-    break;
-
-    case 22:{
-        std::cout << "Five of Hearts" << std::endl;
-    }
-    break;
-
-    case 23:{
-        std::cout << "Four of Hearts" << std::endl;
-    }
-    break;
-
-    case 24:{
-        std::cout << "Three of Hearts" << std::endl;
-    }
-    break;
-
-    case 25:{
-        std::cout << "Two of Hearts" << std::endl;
-    }
-    break;
-
-    case 26:{
-        std::cout << "Ace of Spades" << std::endl;
-    }
-    break;
-
-    case 27:{
-        std::cout << "King of Spades" << std::endl;
-    }
-    break;
-
-    case 28:{
-        std::cout << "Queen of Spades" << std::endl;
-    }
-    break;
-
-    case 29:{
-        std::cout << "Jack of Spades" << std::endl;
-    }
-    break;
-
-    case 30:{
-        std::cout << "Ten of Spades" << std::endl;
-    }
-    break;
-
-    case 31:{
-        std::cout << "Nine of Spades" << std::endl;
-    }
-    break;
-
-    case 32:{
-        std::cout << "Eight of Spades" << std::endl;
-    }
-    break;
-
-    case 33:{
-        std::cout << "Seven of Spades" << std::endl;
-    }
-    break;
-
-    case 34:{
-        std::cout << "Six of Spades" << std::endl;
-    }
-    break;
-
-    case 35:{
-        std::cout << "Five of Spades" << std::endl;
-    }
-    break;
-
-    case 36:{
-        std::cout << "Four of Spades" << std::endl;
-    }
-    break;
-
-    case 37:{
-        std::cout << "Three of Spades" << std::endl;
-    }
-    break;
-
-    case 38:{
-        std::cout << "Two of Spades" << std::endl;
-    }
-    break;
-
-    case 39:{
-        std::cout << "Ace of Clubs" << std::endl;
-    }
-    break;
-
-    case 40:{
-        std::cout << "King of Clubs" << std::endl;
-    }
-    break;
-
-    case 41:{
-        std::cout << "Queen of Clubs" << std::endl;
-    }
-    break;
-
-    case 42:{
-        std::cout << "Jack of Clubs" << std::endl;
-    }
-    break;
-
-    case 43:{
-        std::cout << "Ten of Clubs" << std::endl;
-    }
-    break;
-
-    case 44:{
-        std::cout << "Nine of Clubs" << std::endl;
-    }
-    break;
-
-    case 45:{
-        std::cout << "Eight of Clubs" << std::endl;
-    }
-    break;
-
-    case 46:{
-        std::cout << "Seven of Clubs" << std::endl;
-    }
-    break;
-
-    case 47:{
-        std::cout << "Six of Clubs" << std::endl;
-    }
-    break;
-
-    case 48:{
-        std::cout << "Five of Clubs" << std::endl;
-    }
-    break;
-
-    case 49:{
-        std::cout << "Four of Clubs" << std::endl;
-    }
-    break;
-
-    case 50:{
-        std::cout << "Three of Clubs" << std::endl;
-    }
-    break;
-
-    case 51:{
-        std::cout << "Two of Clubs" << std::endl;
-    }
-    break;
-}      
+   std::map<int, std::string>::iterator x = all_cards.find(a);
+   if(x != all_cards.end()){
+        std::cout << (*x).second << std::endl;
+   }else{
+    std::cout << "something went wrong" << std::endl;
+   }
 }
